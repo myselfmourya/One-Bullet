@@ -1132,7 +1132,7 @@
     // first-time tutorial callouts: teach the mechanic as it happens, not in a wall of text
     if(!demoActive && running===true && tutorialStep>=0){
       let cx=null, cy=null, ctext=null, calpha=1;
-      if(tutorialStep===0){ cx=bullet.x; cy=clamp(bullet.y,64,ARENA_H-40); ctext='THE ONLY BULLET IN THE ARENA - GO GET IT'; }
+      if(tutorialStep===0 && bullet.state==='loose'){ cx=bullet.x; cy=clamp(bullet.y,64,ARENA_H-40); ctext='THE ONLY BULLET IN THE ARENA - GO GET IT'; }
       else if(tutorialStep===1){ cx=player.x; cy=player.y; ctext="ARMED - FIRE WHEN READY (YOU'LL DROP IT THE INSTANT YOU DO)"; }
       else if(tutorialStep===2){ cx=player.x; cy=player.y; ctext='UNARMED - GET BACK TO IT BEFORE THEY DO'; calpha=clamp(1-Math.max(0,tutorialT-3)/1,0,1); }
       if(cx!==null) drawCallout(cx, cy, ctext, calpha);
